@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WATreat — Clean Water Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="rsm.html">RSM Analysis</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <!-- Caustic light shimmer -->
+    <div class="caustic-layer" aria-hidden="true"></div>
+
+    <!-- Rising bubbles -->
+    <div class="bubbles" aria-hidden="true">
+      <span style="left:3%;  width:14px; height:14px; animation-duration:14s; animation-delay:-7s;"></span>
+      <span style="left:8%;  width:22px; height:22px; animation-duration:10s; animation-delay:-3s;"></span>
+      <span style="left:14%; width:10px; height:10px; animation-duration:16s; animation-delay:-12s;"></span>
+      <span style="left:19%; width:18px; height:18px; animation-duration:12s; animation-delay:-5s;"></span>
+      <span style="left:25%; width:26px; height:26px; animation-duration:11s; animation-delay:-9s;"></span>
+      <span style="left:31%; width:13px; height:13px; animation-duration:15s; animation-delay:-2s;"></span>
+      <span style="left:37%; width:20px; height:20px; animation-duration:13s; animation-delay:-10s;"></span>
+      <span style="left:43%; width:16px; height:16px; animation-duration:9s;  animation-delay:-4s;"></span>
+      <span style="left:49%; width:28px; height:28px; animation-duration:17s; animation-delay:-8s;"></span>
+      <span style="left:55%; width:12px; height:12px; animation-duration:11s; animation-delay:-1s;"></span>
+      <span style="left:61%; width:24px; height:24px; animation-duration:14s; animation-delay:-6s;"></span>
+      <span style="left:67%; width:11px; height:11px; animation-duration:12s; animation-delay:-11s;"></span>
+      <span style="left:72%; width:19px; height:19px; animation-duration:10s; animation-delay:-3.5s;"></span>
+      <span style="left:78%; width:15px; height:15px; animation-duration:16s; animation-delay:-7.5s;"></span>
+      <span style="left:83%; width:26px; height:26px; animation-duration:13s; animation-delay:-5s;"></span>
+      <span style="left:88%; width:13px; height:13px; animation-duration:11s; animation-delay:-9s;"></span>
+      <span style="left:93%; width:21px; height:21px; animation-duration:15s; animation-delay:-2.5s;"></span>
+      <span style="left:97%; width:10px; height:10px; animation-duration:9s;  animation-delay:-6s;"></span>
+    </div>
+
+    <!-- Side water flow -->
+    <div class="side-flow side-flow-left" aria-hidden="true"></div>
+    <div class="side-flow side-flow-right" aria-hidden="true"></div>
+
+    <!-- Floating content -->
+    <div class="hero-float">
+
+      <div class="logo-bob">
+        <img src="WATreatLogo2.png" alt="WATreat" class="hero-logo" />
+        <div class="logo-reflect" aria-hidden="true">
+          <img src="WATreatLogo2.png" alt="" />
+        </div>
+      </div>
+
+      <p class="hero-sub">A University of Waterloo student team building<br>affordable water treatment for communities worldwide.</p>
+
+      <div class="hero-btns">
+        <a href="#about" class="btn btn-primary">Our Story</a>
+      </div>
+      <p class="bubble-hint">✦ try clicking the bubbles</p>
+
+    </div>
+
+    <!-- Animated water waves -->
+    <div class="waves-wrap" aria-hidden="true">
+      <svg class="wave-svg"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 24 150 28"
+           preserveAspectRatio="none"
+           shape-rendering="auto">
+        <defs>
+          <path id="wave-path"
+            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="wave-group">
+          <use xlink:href="#wave-path" x="48" y="0" fill="rgba(2,100,180,0.18)"  />
+          <use xlink:href="#wave-path" x="48" y="2" fill="rgba(3,120,200,0.16)"  />
+          <use xlink:href="#wave-path" x="48" y="4" fill="rgba(0,140,210,0.2)"   />
+          <use xlink:href="#wave-path" x="48" y="6" fill="rgba(0,55,115,0.13)"   />
+          <use xlink:href="#wave-path" x="48" y="1" fill="rgba(90,170,220,0.07)"  />
+          <use xlink:href="#wave-path" x="48" y="8" fill="rgba(0,35,95,0.4)"     />
+        </g>
+      </svg>
+    </div>
+
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-content">
+      <div class="about-text">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-heading">Engineering clean water, together.</h2>
+        <p class="section-sub">
+          WATreat is a new University of Waterloo student design team focused on developing practical and
+          innovative solutions for contaminated water treatment. Our multidisciplinary team brings together
+          students from engineering, science, business, and design to research, build, and test a complete
+          water treatment system for emergency scenarios.
+        </p>
+        <p class="section-sub">
+          By competing in the Canadian National Water Treatment Competition, our members gain hands-on
+          experience in technical design, prototyping, project management, budgeting, and teamwork while
+          addressing real-world water challenges. Our goal is to help advance accessible and sustainable
+          solutions that contribute to clean drinking water for all.
+        </p>
+      </div>
+      <div class="about-photo-wrap">
+        <img src="TeamphotoLarge.jpg" alt="The WATreat Team" class="about-photo" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="sponsors" id="sponsors">
+    <div class="sponsors-inner">
+      <h2 class="section-heading">Partner With WATreat!</h2>
+      <p class="section-sub">
+        Support from sponsors allows WATreat to purchase materials, build better prototypes, conduct
+        testing, and represent the University of Waterloo at the Canadian National Water Treatment
+        Competitions.
+      </p>
+      <p class="section-sub">
+        By partnering with WATreat, organizations can support student innovation, connect with emerging
+        engineering talent, and contribute to the development of sustainable water treatment solutions.
+        Explore our sponsorship package to learn more about partnership opportunities and sponsor benefits.
+      </p>
+      <div class="sponsor-btns">
+        <a href="WATreat-Sponsorship-Package-2027.pdf" class="btn btn-primary" target="_blank" rel="noopener">View Sponsorship Package</a>
+        <a href="WATreat-Sponsorship-Package-2027.pdf" class="btn btn-outline" download>Download PDF</a>
+      </div>
+      <div class="sponsor-ticker">
+        <div class="ticker-track">
+          <div class="sponsor-slot"><img src="cropped-EngSoc_Square_Logo-300x300.webp" alt="Engineering Society, University of Waterloo"></div>
+          <div class="sponsor-slot"><img src="weef-logo.webp" alt="WEEF - Waterloo Engineering Endowment Foundation"></div>
+          <div class="sponsor-slot"><img src="water_stp_logo_horizontal_smll.webp" alt="WATER Science, Technology & Policy Group"></div>
+          <!-- duplicate set for seamless loop -->
+          <div class="sponsor-slot"><img src="cropped-EngSoc_Square_Logo-300x300.webp" alt="Engineering Society, University of Waterloo"></div>
+          <div class="sponsor-slot"><img src="weef-logo.webp" alt="WEEF - Waterloo Engineering Endowment Foundation"></div>
+          <div class="sponsor-slot"><img src="water_stp_logo_horizontal_smll.webp" alt="WATER Science, Technology & Policy Group"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TEAM -->
+  <section class="founders" id="team">
+
+    <div class="bubbles" aria-hidden="true">
+      <span style="left:5%;  width:12px; height:12px; animation-duration:13s; animation-delay:-6s;"></span>
+      <span style="left:12%; width:20px; height:20px; animation-duration:10s; animation-delay:-3s;"></span>
+      <span style="left:22%; width:9px;  height:9px;  animation-duration:15s; animation-delay:-9s;"></span>
+      <span style="left:33%; width:16px; height:16px; animation-duration:11s; animation-delay:-2s;"></span>
+      <span style="left:45%; width:24px; height:24px; animation-duration:14s; animation-delay:-7s;"></span>
+      <span style="left:57%; width:11px; height:11px; animation-duration:12s; animation-delay:-4s;"></span>
+      <span style="left:67%; width:18px; height:18px; animation-duration:16s; animation-delay:-11s;"></span>
+      <span style="left:76%; width:14px; height:14px; animation-duration:9s;  animation-delay:-5s;"></span>
+      <span style="left:85%; width:22px; height:22px; animation-duration:13s; animation-delay:-8s;"></span>
+      <span style="left:93%; width:10px; height:10px; animation-duration:11s; animation-delay:-1s;"></span>
+    </div>
+
+    <div class="founders-inner">
+      <h3 class="founders-title">Our Team</h3>
+      <div class="founders-grid">
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#1414b0,#2e86c1);">MF</div>
+          <div class="founder-body">
+            <div class="founder-name">Matt Fan</div>
+            <div class="founder-role">Technical Lead</div>
+            <p class="founder-bio">Drives WATreat's technical vision, overseeing system design and engineering to bring innovative water treatment solutions to life.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#1a5276,#00b4d8);">TH</div>
+          <div class="founder-body">
+            <div class="founder-name">Terry Hou</div>
+            <div class="founder-role">Project Manager</div>
+            <p class="founder-bio">Keeps WATreat moving forward by coordinating cross-team operations and ensuring every project stays on track.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#0e3d5f,#6c63ff);">MM</div>
+          <div class="founder-body">
+            <div class="founder-name">Madeline Mann</div>
+            <div class="founder-role">Chemical Treatment Lead</div>
+            <p class="founder-bio">Leads WATreat's chemical treatment operations, overseeing material sourcing, lab protocols, and data organization to keep our processes efficient and well-documented.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#6b21a8,#a855f7);">AS</div>
+          <div class="founder-body">
+            <div class="founder-name">Alisa Song</div>
+            <div class="founder-role">Communications</div>
+            <p class="founder-bio">Amplifies WATreat's mission through outreach, social media, and community engagement, connecting our work to the wider world.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#065f46,#10b981);">TS</div>
+          <div class="founder-body">
+            <div class="founder-name">Troy Sullivan</div>
+            <div class="founder-role">Chemical</div>
+            <p class="founder-bio">Advances WATreat's chemical treatment capabilities through hands-on research, development, and rigorous system testing.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-headshot" style="background: linear-gradient(135deg,#92400e,#f59e0b);">AP</div>
+          <div class="founder-body">
+            <div class="founder-name">Avery Penn</div>
+            <div class="founder-role">Chemical</div>
+            <p class="founder-bio">Strengthens WATreat's chemical treatment work through dedicated research, development, and thorough testing of purification protocols.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner-solo">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-heading">Contact Us</h2>
+      <p class="section-sub">
+        Have a question, want to explore a partnership, or interested in joining the team?
+        We'd love to hear from you.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:uwattreat@gmail.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+          uwattreat@gmail.com
+        </a>
+        <a class="contact-link" href="https://www.instagram.com/uwwattreat/" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/wat-treat-6927a9414/" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="WATreatLogo2.png" alt="WATreat" class="footer-logo" />
+        <p>A University of Waterloo student design team developing practical, innovative solutions for
+          contaminated water treatment, built and tested by students across engineering, science, business,
+          and design.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="rsm.html">RSM Analysis</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 WATreat. University of Waterloo.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.bubbles span').forEach(bubble => {
+      bubble.addEventListener('click', function () {
+        if (this.classList.contains('popped')) return;
+        const rect = this.getBoundingClientRect();
+        this.style.position = 'fixed';
+        this.style.top    = rect.top  + 'px';
+        this.style.left   = rect.left + 'px';
+        this.style.width  = rect.width  + 'px';
+        this.style.height = rect.height + 'px';
+        this.style.bottom = 'auto';
+        this.style.animation = 'none';
+        void this.offsetHeight; // force reflow to commit animation:none
+        this.style.animation = '';
+        this.classList.add('popped');
+        this.addEventListener('animationend', () => {
+          this.style.display = 'none';
+        }, { once: true });
+      });
+    });
+  </script>
+
+</body>
+</html>

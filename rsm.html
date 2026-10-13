@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSM Analysis — WATreat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+</head>
+<body class="rsm-page">
+
+  <!-- NAV -->
+  <nav id="site-nav">
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#sponsors">Sponsors</a></li>
+      <li><a href="index.html#team">Our Team</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="rsm.html" class="active" aria-current="page">RSM Analysis</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO (same structure as the home page) -->
+  <header class="hero hero-rsm" id="top">
+
+    <div class="caustic-layer" aria-hidden="true"></div>
+
+    <div class="bubbles" aria-hidden="true">
+      <span style="left:3%;  width:14px; height:14px; animation-duration:14s; animation-delay:-7s;"></span>
+      <span style="left:8%;  width:22px; height:22px; animation-duration:10s; animation-delay:-3s;"></span>
+      <span style="left:14%; width:10px; height:10px; animation-duration:16s; animation-delay:-12s;"></span>
+      <span style="left:19%; width:18px; height:18px; animation-duration:12s; animation-delay:-5s;"></span>
+      <span style="left:25%; width:26px; height:26px; animation-duration:11s; animation-delay:-9s;"></span>
+      <span style="left:31%; width:13px; height:13px; animation-duration:15s; animation-delay:-2s;"></span>
+      <span style="left:37%; width:20px; height:20px; animation-duration:13s; animation-delay:-10s;"></span>
+      <span style="left:43%; width:16px; height:16px; animation-duration:9s;  animation-delay:-4s;"></span>
+      <span style="left:49%; width:28px; height:28px; animation-duration:17s; animation-delay:-8s;"></span>
+      <span style="left:55%; width:12px; height:12px; animation-duration:11s; animation-delay:-1s;"></span>
+      <span style="left:61%; width:24px; height:24px; animation-duration:14s; animation-delay:-6s;"></span>
+      <span style="left:67%; width:11px; height:11px; animation-duration:12s; animation-delay:-11s;"></span>
+      <span style="left:72%; width:19px; height:19px; animation-duration:10s; animation-delay:-3.5s;"></span>
+      <span style="left:78%; width:15px; height:15px; animation-duration:16s; animation-delay:-7.5s;"></span>
+      <span style="left:83%; width:26px; height:26px; animation-duration:13s; animation-delay:-5s;"></span>
+      <span style="left:88%; width:13px; height:13px; animation-duration:11s; animation-delay:-9s;"></span>
+      <span style="left:93%; width:21px; height:21px; animation-duration:15s; animation-delay:-2.5s;"></span>
+      <span style="left:97%; width:10px; height:10px; animation-duration:9s;  animation-delay:-6s;"></span>
+    </div>
+
+    <div class="side-flow side-flow-left" aria-hidden="true"></div>
+    <div class="side-flow side-flow-right" aria-hidden="true"></div>
+
+    <div class="hero-float">
+      <div class="logo-bob">
+        <img src="WATreatLogo2.png" alt="WATreat" class="hero-logo" />
+        <div class="logo-reflect" aria-hidden="true">
+          <img src="WATreatLogo2.png" alt="" />
+        </div>
+      </div>
+
+      <h1 class="hero-title">RSM ANALYSIS</h1>
+
+      <div class="hero-btns">
+        <a href="#data" class="btn btn-primary">Start Analysis</a>
+      </div>
+    </div>
+
+    <div class="waves-wrap" aria-hidden="true">
+      <svg class="wave-svg"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 24 150 28"
+           preserveAspectRatio="none"
+           shape-rendering="auto">
+        <defs>
+          <path id="wave-path"
+            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="wave-group">
+          <use xlink:href="#wave-path" x="48" y="0" fill="rgba(2,100,180,0.18)"  />
+          <use xlink:href="#wave-path" x="48" y="2" fill="rgba(3,120,200,0.16)"  />
+          <use xlink:href="#wave-path" x="48" y="4" fill="rgba(0,140,210,0.2)"   />
+          <use xlink:href="#wave-path" x="48" y="6" fill="rgba(0,55,115,0.13)"   />
+          <use xlink:href="#wave-path" x="48" y="1" fill="rgba(90,170,220,0.07)"  />
+          <use xlink:href="#wave-path" x="48" y="8" fill="rgba(0,35,95,0.4)"     />
+        </g>
+      </svg>
+    </div>
+
+  </header>
+
+  <main class="rsm-main">
+    <div class="rsm-wrap">
+
+      <!-- INPUT -->
+      <section class="rsm-card" id="data" aria-labelledby="data-heading">
+        <h2 id="data-heading">Experimental data</h2>
+        <ul class="pt-legend">
+          <li><span class="pt-tag pt-factorial">Factorial</span> Corner trials: both doses at their low or high level.</li>
+          <li><span class="pt-tag pt-axial">Axial</span> One dose at its low or high level, the other at its middle level.</li>
+          <li><span class="pt-tag pt-center">Center</span> Both doses at their middle level, repeated to measure trial-to-trial variation.</li>
+          <li><span class="pt-tag pt-additional">Additional</span> Any extra trial you add, at whatever doses you tested.</li>
+        </ul>
+        <p class="rsm-card-sub">
+          You can paste cells copied from Excel into any cell. Note: a comma followed by exactly three digits is
+          read as a thousands separator, so <strong>1,234</strong> becomes 1234, not 1.234. If your spreadsheet uses
+          commas for decimals, switch it to periods before copying.
+        </p>
+
+        <div class="table-scroll">
+          <table class="rsm-table" id="data-table">
+            <thead>
+              <tr>
+                <th>Trial</th>
+                <th>Point Type</th>
+                <th>Coagulant (mg/L)</th>
+                <th>Polymer (mg/L)</th>
+                <th>Turbidity (NTU)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button type="button" class="add-trial" id="add-trial-btn">+ Add Trial</button>
+
+        <div class="rsm-actions">
+          <button type="button" class="btn btn-primary" id="fit-btn">Fit Model</button>
+          <button type="button" class="btn btn-outline" id="example-btn">Load Example Data</button>
+          <button type="button" class="btn btn-outline" id="reset-btn">Reset</button>
+        </div>
+        <p class="rsm-hint" id="paste-status" role="status" hidden></p>
+        <p class="rsm-hint" id="example-hint" hidden>
+          Example values are illustrative only and are not WATreat test results.
+        </p>
+        <div class="rsm-error" id="error-box" role="alert" hidden></div>
+      </section>
+
+      <!-- RESULTS -->
+      <div class="rsm-results" id="results" hidden>
+
+        <!-- Optimum -->
+        <section class="rsm-optimum" aria-labelledby="opt-heading">
+          <h2 id="opt-heading">Predicted optimum</h2>
+          <div class="opt-row">
+            <span class="opt-label">Optimal Coagulant</span>
+            <span><span class="opt-value" id="opt-c">—</span> <span class="opt-unit">mg/L</span></span>
+          </div>
+          <div class="opt-row">
+            <span class="opt-label">Optimal Polymer</span>
+            <span><span class="opt-value" id="opt-p">—</span> <span class="opt-unit">mg/L</span></span>
+          </div>
+          <div class="opt-row">
+            <span class="opt-label">Predicted Min Turbidity</span>
+            <span><span class="opt-value" id="opt-t">—</span> <span class="opt-unit">NTU</span></span>
+          </div>
+        </section>
+
+        <!-- Model -->
+        <section class="rsm-card" aria-labelledby="model-heading">
+          <span class="section-label">Fitted Model</span>
+          <h2 id="model-heading">Quadratic response surface</h2>
+          <div class="model-grid">
+            <div>
+              <div class="equation"><span class="fx">fx</span><span class="formula" id="equation"></span></div>
+              <p class="coding" id="coding"></p>
+              <div class="table-scroll">
+                <table class="rsm-table coef-table">
+                  <thead>
+                    <tr><th>Term</th><th>Symbol</th><th class="num">Coefficient</th></tr>
+                  </thead>
+                  <tbody id="coef-body"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="r2-box">
+              <div class="r2-label">R²</div>
+              <div class="r2-value" id="r2">—</div>
+              <div class="r2-meta" id="r2-meta"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Plots -->
+        <div class="plot-grid">
+          <section class="rsm-card" aria-labelledby="contour-heading">
+            <span class="section-label">Contour Plot</span>
+            <h2 id="contour-heading">Turbidity map</h2>
+            <p class="rsm-card-sub">White dots are your trials, labelled with measured turbidity. The star marks the optimum.</p>
+            <div class="plot" id="contour-plot"></div>
+          </section>
+          <section class="rsm-card" aria-labelledby="surface-heading">
+            <span class="section-label">3D Surface</span>
+            <h2 id="surface-heading">Response surface</h2>
+            <p class="rsm-card-sub">Drag to rotate and scroll to zoom. The amber point marks the optimum.</p>
+            <div class="plot" id="surface-plot"></div>
+          </section>
+        </div>
+
+        <!-- Actual vs predicted -->
+        <section class="rsm-card" aria-labelledby="avp-heading">
+          <span class="section-label">Model Check</span>
+          <h2 id="avp-heading">Actual vs predicted</h2>
+          <div class="table-scroll">
+            <table class="rsm-table">
+              <thead>
+                <tr>
+                  <th>Trial</th>
+                  <th>Point Type</th>
+                  <th class="num">Coagulant (mg/L)</th>
+                  <th class="num">Polymer (mg/L)</th>
+                  <th class="num">Actual (NTU)</th>
+                  <th class="num">Predicted (NTU)</th>
+                  <th class="num">Residual (NTU)</th>
+                </tr>
+              </thead>
+              <tbody id="avp-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="WATreatLogo2.png" alt="WATreat" class="footer-logo" />
+        <p>A University of Waterloo student design team developing practical, innovative solutions for
+          contaminated water treatment, built and tested by students across engineering, science, business,
+          and design.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#sponsors">Sponsors</a></li>
+          <li><a href="index.html#team">Our Team</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="rsm.html">RSM Analysis</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 WATreat. University of Waterloo.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav: transparent over the hero like the home page, solid once the light content is behind it
+    const siteNav = document.getElementById('site-nav');
+    const heroEl = document.getElementById('top');
+    function updateNav() {
+      siteNav.classList.toggle('nav-solid', window.scrollY > heroEl.offsetHeight - siteNav.offsetHeight - 160);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    window.addEventListener('resize', updateNav);
+    updateNav();
+
+    // Bubble pop (same behaviour as the home page)
+    document.querySelectorAll('.bubbles span').forEach(bubble => {
+      bubble.addEventListener('click', function () {
+        if (this.classList.contains('popped')) return;
+        const rect = this.getBoundingClientRect();
+        this.style.position = 'fixed';
+        this.style.top    = rect.top  + 'px';
+        this.style.left   = rect.left + 'px';
+        this.style.width  = rect.width  + 'px';
+        this.style.height = rect.height + 'px';
+        this.style.bottom = 'auto';
+        this.style.animation = 'none';
+        void this.offsetHeight;
+        this.style.animation = '';
+        this.classList.add('popped');
+        this.addEventListener('animationend', () => {
+          this.style.display = 'none';
+        }, { once: true });
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      // ── Design template (face-centred CCD, 11 trials) ──
+      const TEMPLATE = [
+        ['Factorial', 1000, 20], ['Factorial', 1600, 20],
+        ['Factorial', 1000, 60], ['Factorial', 1600, 60],
+        ['Axial',     1000, 40], ['Axial',     1600, 40],
+        ['Axial',     1300, 20], ['Axial',     1300, 60],
+        ['Center',    1300, 40], ['Center',    1300, 40], ['Center', 1300, 40]
+      ];
+      // Illustrative turbidity values for the "Load Example Data" button
+      const EXAMPLE_T = [4.82, 5.21, 3.41, 5.04, 2.86, 4.18, 3.57, 2.63, 2.08, 1.94, 2.01];
+
+      const COLORSCALE = [[0, '#070728'], [0.3, '#1414aa'], [0.65, '#2e86c1'], [1, '#00b4d8']];
+      const OPT_COLOR  = '#f59e0b';
+      const PLOT_FONT  = { family: 'Inter, Segoe UI, system-ui, sans-serif', color: '#111111', size: 12 };
+
+      const $ = id => document.getElementById(id);
+      const tbody = document.querySelector('#data-table tbody');
+
+      // ── Input table ──
+      function makeInput(value, label, placeholder) {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.step = 'any';
+        input.inputMode = 'decimal';
+        input.value = value;
+        input.setAttribute('aria-label', label);
+        if (placeholder) input.placeholder = placeholder;
+        input.addEventListener('input', () => input.classList.remove('invalid'));
+        return input;
+      }
+
+      const ADDED_TYPES = ['Additional', 'Factorial', 'Axial', 'Center'];
+
+      // One table row. Template trials have a fixed point type; added trials get a
+      // point-type dropdown and a remove button.
+      function addRow(type, c, p, t, added) {
+        const tr = document.createElement('tr');
+
+        const tdTrial = document.createElement('td');
+        tdTrial.className = 'run-cell';
+        const label = document.createElement('span');
+        label.className = 'trial-label';
+        tdTrial.appendChild(label);
+
+        const tdType = document.createElement('td');
+        if (added) {
+          tr.classList.add('added-row');
+          const sel = document.createElement('select');
+          sel.className = 'pt-select';
+          ADDED_TYPES.forEach(opt => sel.add(new Option(opt, opt)));
+          sel.value = type;
+          tdType.className = 'cell-input';
+          tdType.appendChild(sel);
+
+          const rm = document.createElement('button');
+          rm.type = 'button';
+          rm.className = 'trial-remove';
+          rm.textContent = '×';
+          rm.addEventListener('click', () => { tr.remove(); renumber(); });
+          tdTrial.appendChild(rm);
+        } else {
+          const tag = document.createElement('span');
+          tag.className = 'pt-tag pt-' + type.toLowerCase();
+          tag.textContent = type;
+          tdType.appendChild(tag);
+          tr.dataset.type = type;
+        }
+
+        const cells = [makeInput(c, ''), makeInput(p, ''), makeInput(t, '', '—')].map(input => {
+          const td = document.createElement('td');
+          td.className = 'cell-input';
+          td.appendChild(input);
+          return td;
+        });
+
+        tr.append(tdTrial, tdType, ...cells);
+        tbody.appendChild(tr);
+        return tr;
+      }
+
+      // Number the trials 1..n and keep the screen-reader labels in step
+      function renumber() {
+        tbody.querySelectorAll('tr').forEach((tr, i) => {
+          const name = 'Trial ' + (i + 1);
+          tr.querySelector('.trial-label').textContent = name;
+          const [cIn, pIn, tIn] = tr.querySelectorAll('input');
+          cIn.setAttribute('aria-label', name + ' coagulant (mg/L)');
+          pIn.setAttribute('aria-label', name + ' polymer (mg/L)');
+          tIn.setAttribute('aria-label', name + ' turbidity (NTU)');
+          const rm = tr.querySelector('.trial-remove');
+          if (rm) rm.setAttribute('aria-label', 'Remove ' + name);
+          const sel = tr.querySelector('select');
+          if (sel) sel.setAttribute('aria-label', name + ' point type');
+        });
+      }
+
+      function buildTable(turbidity) {
+        tbody.innerHTML = '';
+        TEMPLATE.forEach(([type, c, p], i) => addRow(type, c, p, turbidity ? turbidity[i] : '', false));
+        renumber();
+      }
+
+      function readRows() {
+        const rows = [];
+        const errors = [];
+        tbody.querySelectorAll('tr').forEach((tr, i) => {
+          const [cIn, pIn, tIn] = tr.querySelectorAll('input');
+          const run = 'Trial ' + (i + 1);
+          const sel = tr.querySelector('select');
+          const type = sel ? sel.value : tr.dataset.type;
+
+          const c = cIn.value === '' ? NaN : Number(cIn.value);
+          const p = pIn.value === '' ? NaN : Number(pIn.value);
+          if (cIn.validity.badInput || !Number.isFinite(c)) { cIn.classList.add('invalid'); errors.push(run + ': enter a coagulant dose.'); }
+          if (pIn.validity.badInput || !Number.isFinite(p)) { pIn.classList.add('invalid'); errors.push(run + ': enter a polymer dose.'); }
+
+          let t = NaN;
+          if (tIn.validity.badInput) {
+            tIn.classList.add('invalid');
+            errors.push(run + ': turbidity must be a number.');
+          } else if (tIn.value !== '') {
+            t = Number(tIn.value);
+            if (t < 0) { tIn.classList.add('invalid'); errors.push(run + ': turbidity can\'t be negative.'); }
+          }
+          rows.push({ run, type, c, p, t });
+        });
+        return { rows, errors };
+      }
+
+      // ── Linear algebra ──
+      // Gaussian elimination with partial pivoting. Returns null if singular.
+      function solve(A, b) {
+        const n = b.length;
+        const M = A.map((row, i) => [...row, b[i]]);
+        const scale = Math.max(...A.flat().map(Math.abs)) || 1;
+        for (let col = 0; col < n; col++) {
+          let piv = col;
+          for (let r = col + 1; r < n; r++) if (Math.abs(M[r][col]) > Math.abs(M[piv][col])) piv = r;
+          if (Math.abs(M[piv][col]) < 1e-10 * scale) return null;
+          [M[col], M[piv]] = [M[piv], M[col]];
+          for (let r = 0; r < n; r++) {
+            if (r === col) continue;
+            const f = M[r][col] / M[col][col];
+            for (let k = col; k <= n; k++) M[r][k] -= f * M[col][k];
+          }
+        }
+        return M.map((row, i) => row[n] / row[i]);
+      }
+
+      const basis = (x1, x2) => [1, x1, x2, x1 * x1, x2 * x2, x1 * x2];
+      const predict = (b, x1, x2) => basis(x1, x2).reduce((s, v, i) => s + v * b[i], 0);
+
+      // ── Model fit ──
+      function fit(rows) {
+        const used = rows.filter(r => Number.isFinite(r.t));
+        if (used.length < 6) {
+          throw new Error('Enter turbidity for at least 6 trials. The model has 6 coefficients, and all 11 template trials are recommended. (' + used.length + ' entered so far.)');
+        }
+
+        // Coding: midpoint and half-span of each factor across the design
+        const cs = rows.map(r => r.c), ps = rows.map(r => r.p);
+        const cMin = Math.min(...cs), cMax = Math.max(...cs);
+        const pMin = Math.min(...ps), pMax = Math.max(...ps);
+        const cCenter = (cMin + cMax) / 2, cHalf = (cMax - cMin) / 2;
+        const pCenter = (pMin + pMax) / 2, pHalf = (pMax - pMin) / 2;
+        if (cHalf === 0) throw new Error('All coagulant doses are the same. The design needs a low, middle and high level.');
+        if (pHalf === 0) throw new Error('All polymer doses are the same. The design needs a low, middle and high level.');
+
+        const code = r => ({ x1: (r.c - cCenter) / cHalf, x2: (r.p - pCenter) / pHalf });
+
+        // β = (XᵀX)⁻¹ Xᵀy
+        const X = used.map(r => { const { x1, x2 } = code(r); return basis(x1, x2); });
+        const y = used.map(r => r.t);
+        const XtX = Array.from({ length: 6 }, (_, i) =>
+          Array.from({ length: 6 }, (_, j) => X.reduce((s, row) => s + row[i] * row[j], 0)));
+        const Xty = Array.from({ length: 6 }, (_, i) => X.reduce((s, row, k) => s + row[i] * y[k], 0));
+        const b = solve(XtX, Xty);
+        if (!b) {
+          throw new Error('The model can\'t be fitted with these trials. Each factor needs at least three different levels, spread so all 6 terms can be estimated. Check the doses, or fill in more turbidity results.');
+        }
+
+        // R²
+        const yMean = y.reduce((s, v) => s + v, 0) / y.length;
+        const ssTot = y.reduce((s, v) => s + (v - yMean) ** 2, 0);
+        if (ssTot === 0) throw new Error('All turbidity values are identical, so there is no variation for the model to explain.');
+        const ssRes = X.reduce((s, row, k) => s + (y[k] - row.reduce((a, v, i) => a + v * b[i], 0)) ** 2, 0);
+        const n = used.length;
+        const r2 = 1 - ssRes / ssTot;
+        const adjR2 = n > 6 ? 1 - (1 - r2) * (n - 1) / (n - 6) : null;
+
+        // Stationary point: [2b11 b12; b12 2b22] x = -[b1; b2]
+        const [, b1, b2, b11, b22, b12] = b;
+        const det = 4 * b11 * b22 - b12 * b12;
+        const coefScale = Math.max(Math.abs(b11), Math.abs(b22), Math.abs(b12), 1e-12);
+        let stationary = null;
+        if (Math.abs(det) > 1e-9 * coefScale * coefScale) {
+          const x1 = (-2 * b22 * b1 + b12 * b2) / det;
+          const x2 = (-2 * b11 * b2 + b12 * b1) / det;
+          const kind = det > 0 ? (b11 > 0 ? 'minimum' : 'maximum') : 'saddle point';
+          const inside = Math.abs(x1) <= 1 + 1e-9 && Math.abs(x2) <= 1 + 1e-9;
+          stationary = { x1, x2, kind, inside, t: predict(b, x1, x2) };
+        }
+
+        // Lowest predicted turbidity inside the tested region (grid search on the coded square)
+        let best = { x1: 0, x2: 0, t: Infinity };
+        const N = 200;
+        for (let i = 0; i <= N; i++) {
+          for (let j = 0; j <= N; j++) {
+            const x1 = -1 + 2 * i / N, x2 = -1 + 2 * j / N;
+            const t = predict(b, x1, x2);
+            if (t < best.t) best = { x1, x2, t };
+          }
+        }
+
+        const useStationary = stationary && stationary.kind === 'minimum' && stationary.inside;
+        const opt = useStationary ? stationary : best;
+
+        const toReal = ({ x1, x2 }) => ({ c: cCenter + x1 * cHalf, p: pCenter + x2 * pHalf });
+
+        return {
+          b, r2, adjR2, n, rows, used,
+          coding: { cCenter, cHalf, pCenter, pHalf, cMin, cMax, pMin, pMax },
+          stationary: stationary && { ...stationary, ...toReal(stationary) },
+          opt: { ...opt, ...toReal(opt) },
+          useStationary,
+          predictReal: (c, p) => predict(b, (c - cCenter) / cHalf, (p - pCenter) / pHalf)
+        };
+      }
+
+      // ── Formatting ──
+      const decimalsFor = half => half >= 50 ? 0 : half >= 5 ? 1 : 2;
+      const fmt = (v, d) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d);
+      const fmtT = v => fmt(v, 2);
+
+      // ── Render ──
+      function render(m) {
+        const { b, coding } = m;
+        const dc = decimalsFor(coding.cHalf), dp = decimalsFor(coding.pHalf);
+
+        // Optimum tiles
+        $('opt-c').textContent = fmt(m.opt.c, dc);
+        $('opt-p').textContent = fmt(m.opt.p, dp);
+        $('opt-t').textContent = fmtT(m.opt.t);
+
+        // Equation
+        const maxAbs = Math.max(...b.map(Math.abs));
+        const cd = maxAbs >= 100 ? 1 : maxAbs >= 10 ? 2 : 3;
+        const term = (v, sym) => (v < 0 ? ' − ' : ' + ') + Math.abs(v).toFixed(cd) + sym;
+        $('equation').textContent = 'Turbidity = ' + fmt(b[0], cd) +
+          term(b[1], '·x₁') + term(b[2], '·x₂') + term(b[3], '·x₁²') + term(b[4], '·x₂²') + term(b[5], '·x₁·x₂');
+        $('coding').textContent =
+          'x₁ = (Coagulant − ' + fmt(coding.cCenter, dc) + ') / ' + fmt(coding.cHalf, dc) +
+          '   ·   x₂ = (Polymer − ' + fmt(coding.pCenter, dp) + ') / ' + fmt(coding.pHalf, dp);
+
+        const terms = [
+          ['Intercept', 'b₀'], ['Coagulant', 'b₁'], ['Polymer', 'b₂'],
+          ['Coagulant²', 'b₁₁'], ['Polymer²', 'b₂₂'], ['Coagulant × Polymer', 'b₁₂']
+        ];
+        const coefBody = $('coef-body');
+        coefBody.innerHTML = '';
+        terms.forEach(([name, sym], i) => {
+          const tr = document.createElement('tr');
+          [name, sym, fmt(b[i], cd)].forEach((txt, k) => {
+            const td = document.createElement('td');
+            td.textContent = txt;
+            if (k === 2) td.className = 'num';
+            tr.appendChild(td);
+          });
+          coefBody.appendChild(tr);
+        });
+
+        // R²
+        $('r2').textContent = m.r2.toFixed(3);
+        $('r2-meta').textContent = m.adjR2 === null
+          ? m.n + ' trials used. With exactly 6 trials the model passes through every point, so R² is always 1.'
+          : 'Adjusted R² ' + m.adjR2.toFixed(3) + ' · ' + m.n + ' trials used';
+
+        // Actual vs predicted
+        const avp = $('avp-body');
+        avp.innerHTML = '';
+        m.rows.forEach(r => {
+          const pred = m.predictReal(r.c, r.p);
+          const has = Number.isFinite(r.t);
+          const cells = [
+            r.run, null, fmt(r.c, dc), fmt(r.p, dp),
+            has ? fmtT(r.t) : '—', fmtT(pred), has ? fmtT(r.t - pred) : '—'
+          ];
+          const tr = document.createElement('tr');
+          cells.forEach((txt, k) => {
+            const td = document.createElement('td');
+            if (k === 1) {
+              const tag = document.createElement('span');
+              tag.className = 'pt-tag pt-' + r.type.toLowerCase();
+              tag.textContent = r.type;
+              td.appendChild(tag);
+            } else {
+              td.textContent = txt;
+            }
+            if (k >= 2) td.className = 'num';
+            tr.appendChild(td);
+          });
+          avp.appendChild(tr);
+        });
+
+        renderPlots(m, dc, dp);
+      }
+
+      function renderPlots(m, dc, dp) {
+        const contourEl = $('contour-plot'), surfaceEl = $('surface-plot');
+        if (typeof Plotly === 'undefined') {
+          const msg = '<p class="plot-fallback">The charts couldn\'t load. Check your internet connection and refresh. The numbers above are still correct.</p>';
+          contourEl.innerHTML = msg;
+          surfaceEl.innerHTML = msg;
+          return;
+        }
+
+        const { coding } = m;
+        const G = 60;
+        const cs = Array.from({ length: G + 1 }, (_, i) => coding.cMin + (coding.cMax - coding.cMin) * i / G);
+        const ps = Array.from({ length: G + 1 }, (_, j) => coding.pMin + (coding.pMax - coding.pMin) * j / G);
+        const z = ps.map(p => cs.map(c => m.predictReal(c, p)));
+
+        const hoverGrid = 'Coagulant %{x:.' + dc + 'f} mg/L<br>Polymer %{y:.' + dp + 'f} mg/L<br>Turbidity %{z:.2f} NTU<extra></extra>';
+        const optHover = 'Optimum<br>Coagulant ' + fmt(m.opt.c, dc) + ' mg/L<br>Polymer ' + fmt(m.opt.p, dp) +
+          ' mg/L<br>Turbidity ' + fmtT(m.opt.t) + ' NTU<extra></extra>';
+        const config = { responsive: true, displaylogo: false, modeBarButtonsToRemove: ['lasso2d', 'select2d'] };
+
+        // Group replicate points so their labels don't stack on top of each other
+        const groups = new Map();
+        m.used.forEach(r => {
+          const key = r.c + '|' + r.p;
+          if (!groups.has(key)) groups.set(key, { c: r.c, p: r.p, vals: [] });
+          groups.get(key).vals.push(fmtT(r.t));
+        });
+        const pts = [...groups.values()];
+
+        Plotly.react(contourEl, [
+          {
+            type: 'contour', x: cs, y: ps, z,
+            colorscale: COLORSCALE, ncontours: 14,
+            contours: { coloring: 'heatmap', showlabels: true, labelfont: { color: 'rgba(255,255,255,0.85)', size: 10 } },
+            line: { color: 'rgba(255,255,255,0.35)', width: 1 },
+            colorbar: { title: { text: 'NTU', side: 'right' }, thickness: 14, outlinewidth: 0 },
+            hovertemplate: hoverGrid
+          },
+          {
+            type: 'scatter', mode: 'markers+text', name: 'Trials',
+            x: pts.map(g => g.c), y: pts.map(g => g.p),
+            text: pts.map(g => g.vals.join(', ')),
+            textposition: 'top center', cliponaxis: false,
+            textfont: { color: '#ffffff', size: 12, family: PLOT_FONT.family },
+            marker: { color: '#ffffff', size: 10, line: { color: '#0a2540', width: 1.5 } },
+            hovertemplate: 'Coagulant %{x} mg/L<br>Polymer %{y} mg/L<br>Measured %{text} NTU<extra></extra>'
+          },
+          {
+            type: 'scatter', mode: 'markers', name: 'Optimum',
+            x: [m.opt.c], y: [m.opt.p], cliponaxis: false,
+            marker: { symbol: 'star', color: OPT_COLOR, size: 14, line: { color: '#ffffff', width: 1 } },
+            hovertemplate: optHover
+          }
+        ], {
+          font: PLOT_FONT, paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff',
+          margin: { l: 64, r: 10, t: 24, b: 56 },
+          xaxis: { title: { text: 'Coagulant (mg/L)' }, range: [coding.cMin, coding.cMax], zeroline: false },
+          yaxis: { title: { text: 'Polymer (mg/L)' }, range: [coding.pMin, coding.pMax], zeroline: false },
+          showlegend: false
+        }, config);
+
+        Plotly.react(surfaceEl, [
+          {
+            type: 'surface', x: cs, y: ps, z,
+            colorscale: COLORSCALE, opacity: 0.95,
+            contours: { z: { show: true, usecolormap: true, project: { z: true } } },
+            colorbar: { title: { text: 'NTU', side: 'right' }, thickness: 14, outlinewidth: 0, len: 0.75 },
+            hovertemplate: hoverGrid
+          },
+          {
+            type: 'scatter3d', mode: 'markers', name: 'Trials',
+            x: m.used.map(r => r.c), y: m.used.map(r => r.p), z: m.used.map(r => r.t),
+            marker: { color: '#ffffff', size: 5, line: { color: '#0a2540', width: 2 } },
+            hovertemplate: 'Coagulant %{x} mg/L<br>Polymer %{y} mg/L<br>Measured %{z:.2f} NTU<extra></extra>'
+          },
+          {
+            type: 'scatter3d', mode: 'markers', name: 'Optimum',
+            x: [m.opt.c], y: [m.opt.p], z: [m.opt.t],
+            marker: { symbol: 'circle', color: OPT_COLOR, size: 6, line: { color: '#ffffff', width: 1 } },
+            hovertemplate: optHover
+          }
+        ], {
+          font: PLOT_FONT, paper_bgcolor: '#ffffff',
+          margin: { l: 0, r: 0, t: 0, b: 0 },
+          showlegend: false,
+          scene: {
+            xaxis: { title: { text: 'Coagulant (mg/L)' } },
+            yaxis: { title: { text: 'Polymer (mg/L)' } },
+            zaxis: { title: { text: 'Turbidity (NTU)' } },
+            camera: { eye: { x: 1.55, y: -1.55, z: 0.95 } },
+            aspectmode: 'manual', aspectratio: { x: 1, y: 1, z: 0.7 }
+          }
+        }, config);
+      }
+
+      // ── Wiring ──
+      function showError(msg) {
+        const box = $('error-box');
+        box.textContent = msg;
+        box.hidden = false;
+      }
+
+      function clearResults() {
+        $('error-box').hidden = true;
+        $('results').hidden = true;
+        $('paste-status').hidden = true;
+      }
+
+      // Validate, fit and render. `notes` are extra messages (e.g. paste problems) shown with any errors.
+      function runFit(scroll, notes = []) {
+        $('error-box').hidden = true;
+        const { rows, errors } = readRows();
+        const problems = notes.concat(errors);
+        if (errors.length) {
+          showError(problems.join(' '));
+          $('results').hidden = true;
+          return;
+        }
+        let model;
+        try {
+          model = fit(rows);
+        } catch (e) {
+          showError(problems.concat(e.message).join(' '));
+          $('results').hidden = true;
+          return;
+        }
+        if (notes.length) showError(notes.join(' '));
+        $('results').hidden = false;
+        render(model);
+        if (scroll) $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return true;
+      }
+
+      $('fit-btn').addEventListener('click', () => runFit(true));
+
+      // ── Paste from Excel ──
+      // Editable columns, left to right: 0 Point Type (added trials only), 1 Coagulant, 2 Polymer, 3 Turbidity
+      const COL_NAMES = ['point type', 'coagulant', 'polymer', 'turbidity'];
+
+      function cellAt(tr, col) {
+        if (col === 0) return tr.querySelector('select');
+        return tr.querySelectorAll('input')[col - 1] || null;
+      }
+
+      function colOf(el) {
+        if (el.tagName === 'SELECT') return 0;
+        return [...el.closest('tr').querySelectorAll('input')].indexOf(el) + 1;
+      }
+
+      // Read a spreadsheet number: handles "1,000", "1 000", "2,5" (decimal comma) and quoted cells
+      function parseNumber(raw) {
+        let s = raw.trim().replace(/^"(.*)"$/, '$1').replace(/[\s ]/g, '');
+        if (s === '') return '';
+        if (/^-?\d{1,3}(,\d{3})+(\.\d+)?$/.test(s)) s = s.replace(/,/g, '');
+        else if (/^-?\d+,\d+$/.test(s)) s = s.replace(',', '.');
+        const n = Number(s);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      function parseClipboard(text) {
+        const lines = text.replace(/\r\n?/g, '\n').split('\n');
+        while (lines.length && lines[lines.length - 1].trim() === '') lines.pop();
+        return lines.map(line => line.split('\t'));
+      }
+
+      tbody.addEventListener('paste', e => {
+        const target = e.target;
+        if (!target.matches('input, select')) return;
+        const text = (e.clipboardData || window.clipboardData).getData('text');
+        let grid = parseClipboard(text);
+        // A single value is an ordinary paste into one cell
+        if (grid.length <= 1 && (grid[0] || []).length <= 1) return;
+        e.preventDefault();
+
+        // Skip a copied header row: no numbers in the first row, but numbers below it
+        const hasNumber = row => row.some(v => typeof parseNumber(v) === 'number');
+        if (grid.length > 1 && !hasNumber(grid[0]) && grid.slice(1).some(hasNumber)) grid = grid.slice(1);
+
+        const startCol = colOf(target);
+        let tr = target.closest('tr');
+        const notes = [];
+        let added = 0, extraCols = false;
+
+        grid.forEach(cells => {
+          if (!tr) {
+            tr = addRow('Additional', '', '', '', true);
+            added++;
+          }
+          renumber();
+          const name = tr.querySelector('.trial-label').textContent;
+
+          cells.forEach((raw, k) => {
+            const col = startCol + k;
+            if (col > 3) { if (raw.trim() !== '') extraCols = true; return; }
+            const el = cellAt(tr, col);
+            if (col === 0) {
+              // Point type: only added trials have a dropdown; template trials keep their fixed type
+              if (!el) return;
+              const match = ADDED_TYPES.find(t => t.toLowerCase() === raw.trim().toLowerCase());
+              if (match) el.value = match;
+              return;
+            }
+            const val = parseNumber(raw);
+            el.classList.remove('invalid');
+            if (val === null) {
+              el.value = '';
+              el.classList.add('invalid');
+              notes.push(name + ': couldn\'t read ' + COL_NAMES[col] + ' "' + raw.trim() + '".');
+            } else {
+              el.value = val;
+            }
+          });
+          tr = tr.nextElementSibling;
+        });
+
+        if (extraCols) notes.push('Columns past Turbidity were ignored.');
+
+        const fitted = runFit(false, notes);
+
+        const status = $('paste-status');
+        status.textContent = 'Pasted ' + grid.length + ' row' + (grid.length === 1 ? '' : 's') +
+          (added ? ', adding ' + added + ' new trial' + (added === 1 ? '' : 's') : '') +
+          (fitted ? '. Model refitted. Results are below.' : '. The model couldn\'t be refitted yet (see below).');
+        status.hidden = false;
+      });
+
+      $('example-btn').addEventListener('click', () => {
+        buildTable(EXAMPLE_T);
+        clearResults();
+        $('example-hint').hidden = false;
+      });
+
+      $('add-trial-btn').addEventListener('click', () => {
+        const tr = addRow('Additional', '', '', '', true);
+        renumber();
+        tr.querySelector('input').focus();
+      });
+
+      $('reset-btn').addEventListener('click', () => {
+        buildTable(null);
+        clearResults();
+        $('example-hint').hidden = true;
+      });
+
+      buildTable(null);
+    })();
+  </script>
+
+</body>
+</html>
